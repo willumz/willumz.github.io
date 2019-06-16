@@ -18,6 +18,9 @@ class Console
         Console.directory = "";
         Console.history = [];
         Console.historyCount = 1;
+        Console.tabCount = 1;
+        Console.tabSet = "";
+        Console.tabPrevEntered = "";
     }
     static runCommand()
     {
@@ -116,13 +119,15 @@ class Console
 }
 
 var cons = new Console();
-console.log(Console.comInput);
 
-function keyDown(e, cons)
+function keyDown(e)
 {
     if (event.key === "Enter")
     {
         Console.runCommand();
+        Console.tabCount = 1;
+        Console.tabSet = "";
+        Console.tabPrevEntered = "";
     }
     else if (event.key === "ArrowUp")
     {
@@ -144,4 +149,40 @@ function keyDown(e, cons)
             }
         }   
     }
+    else if (event.key === "Tab")
+    {
+        event.preventDefault();
+        var items = fileTree[Console.directory];
+        var good_items = [];
+        var entered = Console.comInput.value.split(" ")[1];
+        if (entered === Console.tabSet) entered = Console.tabPrevEntered;
+        else
+        {
+            Console.tabSet = "";
+            Console.tabPrevEntered = entered;
+        }
+        for (var i of items)
+        {
+            if (i[0].startsWith(entered))
+            {
+                good_items.push(i[0]);
+            }
+        }
+        if (Console.tabCount > good_items.length) Console.tabCount = 1;
+        if (good_items.length > 0)
+        {
+            var temp = Console.comInput.value.split(" ");
+            temp.pop();
+            temp.push(good_items[Console.tabCount-1]);
+            Console.comInput.value = temp.join(" ");
+            Console.tabSet = good_items[Console.tabCount-1];
+            Console.tabCount++;
+        }
+        
+    }
+}
+
+function focusInput()
+{
+    document.getElementById('input-command').focus();
 }
