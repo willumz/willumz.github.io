@@ -14,11 +14,15 @@ class Console
         Console.typer.type(welcomeMessage);
         Console.comInput = document.getElementById("input-command");
         Console.directory = "";
+        Console.history = [];
+        Console.historyCount = 1;
     }
     static runCommand()
     {
         var com = Console.comInput.value.split(" ");
         Console.comInput.value = "";
+        Console.history.push(com.join(" "));
+        Console.historyCount = 1;
         if (com[0] !== "clear")
         {
             if (onScreen !== "") onScreen += `<br>${Console.directory}$ ${com.join(" ")}`;
@@ -92,5 +96,25 @@ function keyDown(e, cons)
     if (event.key === "Enter")
     {
         Console.runCommand();
+    }
+    else if (event.key === "ArrowUp")
+    {
+        if (Console.history.length >= Console.historyCount)
+        {
+            Console.comInput.value = Console.history[Console.history.length-Console.historyCount];
+            Console.historyCount++;
+        }
+    }
+    else if (event.key === "ArrowDown")
+    {
+        if (Console.historyCount - 2 > 0)
+        {
+            Console.historyCount -= 2;
+            if (Console.history.length >= Console.historyCount)
+            {
+                Console.comInput.value = Console.history[Console.history.length-Console.historyCount];
+                Console.historyCount++;
+            }
+        }   
     }
 }
