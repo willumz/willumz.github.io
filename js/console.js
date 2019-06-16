@@ -1,5 +1,5 @@
 
-var welcomeMessage = '<br>Welcome to <a href="https://willumz.github.io">willumz.github.io</a><br>Type \'help\' for help';
+var welcomeMessage = 'Welcome to <a href="https://willumz.github.io/">willumz.github.io</a><br>Type \'help\' for help';
 
 var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>clear - clears the terminal';
 
@@ -21,10 +21,11 @@ class Console
         Console.comInput.value = "";
         if (com[0] !== "clear")
         {
-            onScreen += `<br>${Console.directory}$ ${com.join(" ")}`;
+            if (onScreen !== "") onScreen += `<br>${Console.directory}$ ${com.join(" ")}`;
+            else onScreen += `${Console.directory}$ ${com.join(" ")}`;
             consoleTextBox.innerHTML = onScreen;
         }
-        switch (com[0])
+        switch (com[0].toLowerCase())
         {
             case "help":
                 Console.typer.type(helpMessage);

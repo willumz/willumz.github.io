@@ -1,6 +1,6 @@
 var toType = "";
 var consoleTextBox = document.getElementById("console-text");
-var onScreen = "<b>willumz.github.io</b>";
+var onScreen = "";//"<b><a href=\"https://willumz.github.io/\">willumz.github.io</a></b>";
 var intervalHand;
 var typing = false;
 
@@ -10,6 +10,7 @@ class Typer
     {
         intervalHand = setInterval(this.write_char, interval);
         this.interval = interval;
+        typing = true;
     }
     type(string)
     {
@@ -39,18 +40,8 @@ class Typer
         else
         {
             consoleTextBox.innerHTML = onScreen;
-            //checkLinks();
             clearInterval(intervalHand);
             typing = false;
         }
     }
 }
-
-// function checkLinks()
-// {
-//     var links = document.getElementsByTagName("a");
-//     for (var i of links)
-//     {
-//         i.onclick = (function() { window.location.href = i.href; });
-//     }
-// }
