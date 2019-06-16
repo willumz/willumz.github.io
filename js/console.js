@@ -4,7 +4,7 @@ var welcomeMessage = 'Welcome to <a href="https://willumz.github.io/">willumz.gi
 var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>clear - clears the terminal';
 
 var fileTree = {"": [["projects", "dir"], ["socialmedia.txt", "file"]],
-    "projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["keybscript.txt", "file"]]};
+    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["keybscript.txt", "file"]]};
 
 class Console
 {
@@ -51,8 +51,13 @@ class Console
                         exists = true;
                         if (i[1] === "dir")
                         {
-                            if (com[1] === "..") Console.directory = "";
-                            else Console.directory = com[1];
+                            if (com[1] === "..")
+                            {
+                                Console.directory = Console.directory.split("/");
+                                Console.directory.pop();
+                                Console.directory = Console.directory.join("/");
+                            }
+                            else Console.directory = [Console.directory, com[1]].join("/");
                         }
                         else Console.typer.type(`<br>'${com[1]}' is not a directory`);
                     }
@@ -74,7 +79,8 @@ class Console
                         exists = true;
                         if (i[1] === "file")
                         {
-                            Console.typer.type(files[com[1]]);
+                            var full_path = [Console.directory, com[1]].join("/");
+                            Console.typer.type(files[full_path]);
                         }
                         else Console.typer.type(`<br>'${com[1]}' is not a file`);
                     }
