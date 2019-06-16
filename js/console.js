@@ -161,6 +161,7 @@ function keyDown(e)
             Console.tabSet = "";
             Console.tabPrevEntered = entered;
         }
+        if (entered == null) Console.tabPrevEntered = "";
         for (var i of items)
         {
             if (i[0].startsWith(entered))

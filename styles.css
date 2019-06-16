@@ -14,6 +14,7 @@ a
 input
 {
     background-color: black;
+    outline-width: 0;
     color: lime;
     border: none;
     font-family: "Lucida Console", Monaco, monospace;
