@@ -1,10 +1,12 @@
 
 var welcomeMessage = 'Welcome to <a href="https://willumz.github.io/">willumz.github.io</a><br>Type \'help\' for help';
 
-var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>clear - clears the terminal';
+var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>bash - runs an executable (.sh) file<br>clear - clears the terminal';
 
 var fileTree = {"": [["projects", "dir"], ["socialmedia.txt", "file"]],
-    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["keybscript.txt", "file"]]};
+    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["keybscript", "dir"]],
+    "/projects/keybscript": [["keybscript.txt", "file"], ["keybscript.sh", "exe"]]
+};
 
 class Console
 {
@@ -82,7 +84,26 @@ class Console
                             var full_path = [Console.directory, com[1]].join("/");
                             Console.typer.type(files[full_path]);
                         }
+                        else if (i[1] === "exe") Console.typer.type(`<br>'${com[1]}' cannot be read as it is an executable`);
                         else Console.typer.type(`<br>'${com[1]}' is not a file`);
+                    }
+                }
+                if (!exists) Console.typer.type(`<br>'${com[1]}' does not exist in this directory`);
+                break;
+            case "bash":
+                var items = fileTree[Console.directory];
+                var exists = false;
+                for (var i of items)
+                {
+                    if (i[0] === com[1])
+                    {
+                        exists = true;
+                        if (i[1] === "exe")
+                        {
+                            var full_path = [Console.directory, com[1]].join("/");
+                            executables[full_path]();
+                        }
+                        else Console.typer.type(`<br>'${com[1]}' is not executable`);
                     }
                 }
                 if (!exists) Console.typer.type(`<br>'${com[1]}' does not exist in this directory`);
