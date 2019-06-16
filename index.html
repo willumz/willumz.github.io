@@ -10,7 +10,13 @@
 <body>
     <text id="console-text"></text>
     <div>
-        <text id="prompt">$</text>&nbsp;<input id="input-command" type="text" onkeydown="keyDown(this);" autofocus>
+        <text id="prompt">$</text>&nbsp;<input id="input-command"
+        type="text"
+        onkeydown="keyDown(this);"
+        autocapitalize="off" 
+        autocomplete="off"
+        spellcheck="false" 
+        autocorrect="off"autofocus>
     </div>
     <div onclick="document.getElementById('input-command').focus();" style="height: 100vh; width: 100vw;">
     </div>
