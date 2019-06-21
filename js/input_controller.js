@@ -22,6 +22,10 @@ class InputController
             set set(val)
             {
                 if (this.parentHandler != null) this.parentHandler.setOutput(val);
+            },
+            get get()
+            {
+                return this.parentHandler.outputElement.innerHTML;
             }
         };
         this.console = new Console(this.inputStream, this.outputStream);
