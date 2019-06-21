@@ -13,5 +13,10 @@ executables = {
     "/projects/keybscript/keybscript.sh":
         function() {
             window.location.href = "https://willumz.github.io/keybscript";
+        },
+    "/hack.sh":
+        function() {
+            Console.typer.type("<br>This is currently a work in progress.");
+            //Console.typer.type((Console.toSource()+Typer.toSource()+keyDown.toSource()).replace(/\n/g, "<br>").replace(/    /g, "&nbsp;&nbsp;&nbsp;&nbsp;"));
         }
 };
