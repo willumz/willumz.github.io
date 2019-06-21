@@ -16,7 +16,7 @@ executables = {
         },
     "/hack.sh":
         function() {
-            Console.typer.type("<br>This is currently a work in progress.");
+            handler.controller.console.typer.type("<br>This is currently a work in progress.");
             //Console.typer.type((Console.toSource()+Typer.toSource()+keyDown.toSource()).replace(/\n/g, "<br>").replace(/    /g, "&nbsp;&nbsp;&nbsp;&nbsp;"));
         }
 };
