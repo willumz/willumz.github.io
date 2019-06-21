@@ -22,12 +22,10 @@ class InputHandler
     }
     setOutput(val)
     {
-        console.log("test");
         this.outputElement.innerHTML = val;
     }
     addOutput(val)
     {
-        console.log("test");
         this.outputElement.innerHTML += val;
     }
     keyDown(e)

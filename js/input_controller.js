@@ -28,7 +28,6 @@ class InputController
     }
     onKey(event)
     {
-        console.log(this.inputStream);
         if (event.key === "Enter")
         {
             this.console.runCommand();
