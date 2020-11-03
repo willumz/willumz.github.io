@@ -5,7 +5,7 @@ var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>
 
 var fileTree = {
     "": [["projects", "dir"], ["socialmedia.txt", "file"], ["hack.sh", "exe"]],
-    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["keybscript", "dir"]],
+    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["generic-pseudocode-vscode.txt", "file"], ["keybscript", "dir"]],
     "/projects/keybscript": [["..", "dir"], ["keybscript.txt", "file"], ["keybscript.sh", "exe"]]
 };
 

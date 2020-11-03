@@ -5,6 +5,8 @@ files = {
         "<br>Github: <a href=\"https://github.com/willumz\">Willumz</a>",
     "/projects/ps-minifier.txt":
         "<br>A very basic minifier for PowerShell scripts.<br><a href=\"https://github.com/willumz/ps-minifier\">Link to the Github</a> <a href=\"https://pypi.org/project/ps-minifier\">Link to the PyPi</a>",
+    "/projects/generic-pseudocode-vscode.txt":
+        "<br>An extension for generic syntax highlighting for pseudocode in VSCode.<br><a href=\"https://github.com/willumz/generic-pseudocode-vscode\">Link to the Github</a> <a href=\"https://marketplace.visualstudio.com/items?itemName=willumz.generic-pseudocode\">Link to the Marketplace</a>",
     "/projects/keybscript/keybscript.txt":
         "<br>A scripting language for keyboard input which aims to build some complexity upon the simplicity of DuckyScript.<br><a href=\"https://willumz.github.io/keybscript\">Link to the converter</a>"
 };
@@ -38,7 +40,7 @@ executables = {
                     if (this.hackerLineCount >= this.hackerSource.length) this.hackerLineCount = 0;
                     //this.console.typer.type(this.hackerSource[this.hackerLineCount]);
                     //this.console.typer.onScreen += ""+this.hackerSource[this.hackerLineCount];
-                    this.outputStream.parentHandler.outputElement.getElementsByTagName("pre")[0].innerHTML += "\n"+this.hackerSource[this.hackerLineCount];
+                    this.outputStream.parentHandler.outputElement.getElementsByTagName("pre")[0].innerHTML += this.hackerSource[this.hackerLineCount]+"\n";
                     //this.outputStream.add = ""+this.hackerSource[this.hackerLineCount];
                     this.hackerLineCount++;
                     this.inputStream.value = "";
