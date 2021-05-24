@@ -1,5 +1,5 @@
 var welcomeMessage =
-    "Welcome to <a href=\"https://willumz.github.io/\">willumz.github.io</a><br>Type 'help' for help";
+    "Welcome to <a href=\"https://www.willrycroft.com/\">willrycroft.com</a><br>Type 'help' for help";
 
 var helpMessage =
     "<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>bash FILE - runs the executable (.sh file) FILE<br>clear - clears the terminal";
