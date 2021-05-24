@@ -1,16 +1,30 @@
+var welcomeMessage =
+    "Welcome to <a href=\"https://willumz.github.io/\">willumz.github.io</a><br>Type 'help' for help";
 
-var welcomeMessage = 'Welcome to <a href="https://willumz.github.io/">willumz.github.io</a><br>Type \'help\' for help';
-
-var helpMessage = '<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>bash FILE - runs the executable (.sh file) FILE<br>clear - clears the terminal';
+var helpMessage =
+    "<br>HELP:<br>ls - list all files in the current directory<br>cd DIRECTORY - change the current directory to DIRECTORY<br>cat FILE - read the contents of FILE<br>bash FILE - runs the executable (.sh file) FILE<br>clear - clears the terminal";
 
 var fileTree = {
-    "": [["projects", "dir"], ["socialmedia.txt", "file"], ["hack.sh", "exe"]],
-    "/projects": [["..", "dir"], ["ps-minifier.txt", "file"], ["generic-pseudocode-vscode.txt", "file"], ["keybscript", "dir"]],
-    "/projects/keybscript": [["..", "dir"], ["keybscript.txt", "file"], ["keybscript.sh", "exe"]]
+    "": [
+        ["projects", "dir"],
+        ["socialmedia.txt", "file"],
+        ["hack.sh", "exe"],
+    ],
+    "/projects": [
+        ["..", "dir"],
+        ["ps-minifier.txt", "file"],
+        ["generic-pseudocode-vscode.txt", "file"],
+        ["keybscript", "dir"],
+        ["cmdcell.txt", "file"],
+    ],
+    "/projects/keybscript": [
+        ["..", "dir"],
+        ["keybscript.txt", "file"],
+        ["keybscript.sh", "exe"],
+    ],
 };
 
 class Console {
-
     constructor(inputStream = null, outputStream = null) {
         this.inStream = inputStream;
         this.outStream = outputStream;
@@ -32,14 +46,14 @@ class Console {
         this.history.push(com.join(" "));
         this.historyCount = 1;
         if (com[0] !== "clear") {
-            if (this.typer.onScreen !== "") this.typer.onScreen += `<br>${this.directory}$ ${com.join(" ")}`;
+            if (this.typer.onScreen !== "")
+                this.typer.onScreen += `<br>${this.directory}$ ${com.join(" ")}`;
             else this.typer.onScreen += `${this.directory}$ ${com.join(" ")}`;
             this.outStream.set = this.typer.onScreen;
         }
 
         for (var i in this.commands) {
-            if (com[0].toLowerCase() === i)
-            {
+            if (com[0].toLowerCase() === i) {
                 this.commands[i](this, com);
                 return;
             }
@@ -48,8 +62,8 @@ class Console {
     }
     getPath(path) {
         if (path.startsWith("/")) return path;
-        else //if (!path.includes("/"))
-        {
+        //if (!path.includes("/"))
+        else {
             var temp = this.directory.split("/");
             temp.push(path);
             return temp.join("/");
@@ -78,10 +92,8 @@ Console.defaultCommands = {
                         self.directory = self.directory.split("/");
                         self.directory.pop();
                         self.directory = self.directory.join("/");
-                    }
-                    else self.directory = [self.directory, com[1]].join("/");
-                }
-                else self.typer.type(`<br>'${com[1]}' is not a directory`);
+                    } else self.directory = [self.directory, com[1]].join("/");
+                } else self.typer.type(`<br>'${com[1]}' is not a directory`);
             }
         }
         if (!exists) self.typer.type(`<br>'${com[1]}' does not exist in self directory`);
@@ -100,8 +112,8 @@ Console.defaultCommands = {
                 if (i[1] === "file") {
                     var full_path = [self.directory, com[1]].join("/");
                     self.typer.type(files[full_path]);
-                }
-                else if (i[1] === "exe") self.typer.type(`<br>'${com[1]}' cannot be read as it is an executable`);
+                } else if (i[1] === "exe")
+                    self.typer.type(`<br>'${com[1]}' cannot be read as it is an executable`);
                 else self.typer.type(`<br>'${com[1]}' is not a file`);
             }
         }
@@ -116,12 +128,11 @@ Console.defaultCommands = {
                 if (i[1] === "exe") {
                     var full_path = [self.directory, com[1]].join("/");
                     executables[full_path]();
-                }
-                else self.typer.type(`<br>'${com[1]}' is not executable`);
+                } else self.typer.type(`<br>'${com[1]}' is not executable`);
             }
         }
         if (!exists) self.typer.type(`<br>'${com[1]}' does not exist in self directory`);
-    }
+    },
 };
 
 //var cons = new Console();
