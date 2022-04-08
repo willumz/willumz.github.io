@@ -5,21 +5,43 @@ interface Props {
     text: string;
     link?: string;
     externalLink?: string;
+    onClick: () => undefined;
 }
 
 export default class HamburgerMenuButton extends Component<Props> {
     render() {
         let className =
             "mx-1 pr-[40%] text-3xl py-1 px-4 dark:text-white text-slate-800 dark:hover:bg-slate-700 hover:bg-gray-100 rounded-md cursor-pointer";
-        let linkTag = <div className={className}>{this.props.text}</div>;
+        let linkTag = (
+            <div
+                className={className}
+                onClick={() => {
+                    this.props.onClick();
+                }}
+            >
+                {this.props.text}
+            </div>
+        );
         if (this.props.link !== undefined || this.props.externalLink !== undefined) {
             linkTag =
                 this.props.link !== undefined ? (
-                    <Link className={className} to={this.props.link}>
+                    <Link
+                        className={className}
+                        to={this.props.link}
+                        onClick={() => {
+                            this.props.onClick();
+                        }}
+                    >
                         {this.props.text}
                     </Link>
                 ) : (
-                    <a className={className} href={this.props.externalLink}>
+                    <a
+                        className={className}
+                        href={this.props.externalLink}
+                        onClick={() => {
+                            this.props.onClick();
+                        }}
+                    >
                         {this.props.text}
                     </a>
                 );

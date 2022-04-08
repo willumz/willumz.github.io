@@ -3,6 +3,7 @@ import HamburgerMenuButton from "./HamburgerMenuButton";
 
 interface Props {
     hidden: boolean;
+    closeMenu: () => undefined;
 }
 
 export default class HamburgerMenu extends Component<Props> {
@@ -14,8 +15,16 @@ export default class HamburgerMenu extends Component<Props> {
                 }`}
             >
                 <div className="absolute top-24 px-3 w-[90%]">
-                    <HamburgerMenuButton text="About" link="/about" />
-                    <HamburgerMenuButton text="Projects" link="/projects" />
+                    <HamburgerMenuButton
+                        text="About"
+                        link="/about"
+                        onClick={this.props.closeMenu}
+                    />
+                    <HamburgerMenuButton
+                        text="Projects"
+                        link="/projects"
+                        onClick={this.props.closeMenu}
+                    />
                 </div>
             </div>
         );
