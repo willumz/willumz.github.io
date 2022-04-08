@@ -43,7 +43,7 @@ export default class Header extends Component<Props, State> {
                     <ModeSwitch toggleDark={this.props.toggleDarkMode} />
                     <HamburgerButton onClick={this.toggleMenu} />
                 </div>
-                <HamburgerMenu hidden={this.state.menuOpen} />
+                <HamburgerMenu hidden={!this.state.menuOpen} />
             </div>
         );
     }
