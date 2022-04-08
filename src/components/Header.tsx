@@ -30,7 +30,7 @@ export default class Header extends Component<Props, State> {
     }
     render() {
         return (
-            <div className="bg-gray-200 dark:bg-slate-900 w-screen h-16 sticky top-0">
+            <div className="bg-gray-200 dark:bg-slate-900 h-16 sticky top-0">
                 <Link to="/">
                     <ProfilePicture className="absolute my-2 left-4 w-12" />
                 </Link>

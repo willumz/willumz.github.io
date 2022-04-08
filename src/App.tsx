@@ -41,9 +41,7 @@ class App extends Component<Props, State> {
     }
     render() {
         return (
-            <div
-                className={`${this.state.darkMode ? "dark bg-slate-800" : "bg-white"} min-h-screen`}
-            >
+            <div className={`${this.state.darkMode ? "dark bg-slate-800" : "bg-white"} h-screen`}>
                 <Header toggleDarkMode={this.toggleDarkMode} />
 
                 <Routes>
