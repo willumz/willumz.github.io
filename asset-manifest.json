@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd247e05.css",
-    "main.js": "/static/js/main.311c0b7f.js",
+    "main.css": "/static/css/main.d1bfb046.css",
+    "main.js": "/static/js/main.41beb308.js",
     "static/js/787.e8bfc7bf.chunk.js": "/static/js/787.e8bfc7bf.chunk.js",
     "static/media/profilepic.jpg": "/static/media/profilepic.27fc0e6feeefc9667be0.jpg",
     "static/media/fa-brands-400.svg": "/static/media/fa-brands-400.827b56bb662532f6c1fe.svg",
@@ -36,13 +36,14 @@
     "static/media/fa-regular-400.woff": "/static/media/fa-regular-400.6c2f66b86b978162ff53.woff",
     "static/media/la-regular-400.woff2": "/static/media/la-regular-400.8dc1cedf1f4987f82b72.woff2",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.e7efc516cb941a6ae54d.woff2",
+    "static/media/pseudocode-logo.png": "/static/media/pseudocode-logo.69a4e956ff3ecef84805.png",
     "index.html": "/index.html",
-    "main.cd247e05.css.map": "/static/css/main.cd247e05.css.map",
-    "main.311c0b7f.js.map": "/static/js/main.311c0b7f.js.map",
+    "main.d1bfb046.css.map": "/static/css/main.d1bfb046.css.map",
+    "main.41beb308.js.map": "/static/js/main.41beb308.js.map",
     "787.e8bfc7bf.chunk.js.map": "/static/js/787.e8bfc7bf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd247e05.css",
-    "static/js/main.311c0b7f.js"
+    "static/css/main.d1bfb046.css",
+    "static/js/main.41beb308.js"
   ]
 }
