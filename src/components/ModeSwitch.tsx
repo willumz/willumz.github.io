@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Cookies, withCookies } from "react-cookie";
 
 interface Props {
     toggleDark: () => undefined;
+    cookies: Cookies;
 }
 
 interface State {
     darkMode: boolean;
 }
 
-export default class ModeSwitch extends Component<Props, State> {
+class ModeSwitch extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = { darkMode: true };
+        this.state = { darkMode: props.cookies.get("dark_mode") === "true" };
     }
     toggleDarkMode() {
         this.setState(prevState => ({ darkMode: !prevState.darkMode }));
@@ -41,3 +43,5 @@ export default class ModeSwitch extends Component<Props, State> {
         );
     }
 }
+
+export default withCookies(ModeSwitch);
