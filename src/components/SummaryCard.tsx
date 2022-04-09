@@ -6,24 +6,81 @@ interface Props {
     text: string;
     readMoreLink?: string;
     readMoreLinkExternal?: string;
+    heightClass?: string;
+    widthClass?: string;
+    disableMobileView?: boolean;
 }
 
+/**
+ * SummaryCard
+ *
+ * @description a card that displays a summary of some content, with a picture and body, along with optional read more link
+ *
+ * @prop img - the image to be displayed
+ * @prop text - the body to be displayed
+ * @prop readMoreLink - (optional) the internal link to direct to
+ * @prop readMoreLinkExternal - (optional) the external link to direct to
+ * @prop heightClass - (optional) the tailwind height class to be applied to the card (include conditions)
+ * @prop widthClass - (optional) the tailwind width class to be applied to the card (include conditions)
+ * @prop disableMobileView - (optional) if true, the card will look the same on desktop as on mobile
+ */
 export default class SummaryCard extends Component<Props> {
     render() {
         return (
-            <div className="flex w-screen justify-center md:justify-start">
-                <div className="bg-blue-100 dark:bg-gray-900 shadow-xl rounded-xl w-3/4 md:w-[25rem] mx-10 h-fit lg:w-[50rem] lg:h-[25rem]">
-                    <div className="float-top lg:float-left w-full lg:w-auto lg:h-full">
-                        <div className="flex items-center justify-center w-full lg:w-auto lg:h-full mt-7 lg:mt-0 lg:ml-7">
+            <div
+                className={
+                    this.props.disableMobileView
+                        ? `flex justify-center md:justify-start w-screen md:w-auto`
+                        : `flex w-screen md:w-auto justify-center md:justify-start`
+                }
+            >
+                <div
+                    className={
+                        (this.props.disableMobileView
+                            ? `bg-blue-100 dark:bg-gray-900 shadow-xl rounded-xl h-fit mx-10`
+                            : `bg-blue-100 dark:bg-gray-900 shadow-xl rounded-xl w-3/4 md:w-[25rem] mx-10 h-fit`) +
+                        ` ${this.props.widthClass || "lg:w-[50rem]"} ${
+                            this.props.heightClass || "lg:h-[25rem]"
+                        }`
+                    }
+                >
+                    <div
+                        className={
+                            this.props.disableMobileView
+                                ? `float-left h-full`
+                                : `float-top lg:float-left w-full lg:w-auto lg:h-full`
+                        }
+                    >
+                        <div
+                            className={
+                                this.props.disableMobileView
+                                    ? `flex items-center justify-center h-full ml-7`
+                                    : `flex items-center justify-center w-full lg:w-auto lg:h-full mt-7 lg:mt-0 lg:ml-7`
+                            }
+                        >
                             <img
-                                className="rounded-full w-[65%] lg:w-auto lg:h-[65%]"
+                                className={
+                                    this.props.disableMobileView
+                                        ? `rounded-full h-[65%]`
+                                        : `rounded-full w-[65%] lg:w-auto lg:h-[65%]`
+                                }
                                 src={this.props.img}
                                 alt=""
                             />
                         </div>
                     </div>
-                    <div className="w-full lg:w-auto lg:h-full">
-                        <div className="flex justify-center w-full lg:w-auto lg:h-full items-center px-15 py-10 lg:px-10 lg:py-15 text-black dark:text-white">
+                    <div
+                        className={
+                            this.props.disableMobileView ? `h-full` : `w-full lg:w-auto lg:h-full`
+                        }
+                    >
+                        <div
+                            className={
+                                this.props.disableMobileView
+                                    ? `flex justify-center h-full items-center px-10 py-16 text-black dark:text-white`
+                                    : `flex justify-center w-full lg:w-auto lg:h-full items-center px-16 py-10 lg:px-10 lg:py-16 text-black dark:text-white`
+                            }
+                        >
                             <p>
                                 {this.props.text}
                                 <br />
