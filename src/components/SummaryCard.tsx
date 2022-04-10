@@ -9,6 +9,7 @@ interface Props {
     heightClass?: string;
     widthClass?: string;
     disableMobileView?: boolean;
+    imgHeightClass?: string;
 }
 
 /**
@@ -30,8 +31,8 @@ export default class SummaryCard extends Component<Props> {
             <div
                 className={
                     this.props.disableMobileView
-                        ? `flex justify-center md:justify-start w-screen md:w-auto`
-                        : `flex w-screen md:w-auto justify-center md:justify-start`
+                        ? `flex justify-center lg:justify-start w-screen md:w-auto`
+                        : `flex w-screen md:w-auto justify-center lg:justify-start`
                 }
             >
                 <div
@@ -61,8 +62,10 @@ export default class SummaryCard extends Component<Props> {
                             <img
                                 className={
                                     this.props.disableMobileView
-                                        ? `rounded-full h-[65%]`
-                                        : `rounded-full w-[65%] lg:w-auto lg:h-[65%]`
+                                        ? `rounded-full ${this.props.imgHeightClass || "h-[65%]"}`
+                                        : `rounded-full lg:w-auto ${
+                                              this.props.imgHeightClass || "w-[65%] lg:h-[65%]"
+                                          }`
                                 }
                                 src={this.props.img}
                                 alt=""
