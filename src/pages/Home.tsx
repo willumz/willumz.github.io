@@ -21,7 +21,7 @@ export default class Home extends Component {
     render() {
         return (
             // <ScrollContainer>
-            <div className="block overflow-x-hidden relative min-h-fit lg:h-screen">
+            <div className="block overflow-x-hidden relative min-h-fit">
                 <div className="relative items-center my-24 lg:my-0 lg:top-0 lg:w-screen lg:min-h-screen min-h-fit">
                     <div className="relative lg:absolute lg:w-fit h-fit lg:top-[20vh] lg:left-[15%] my-7 lg:my-0">
                         {/* <Animator animation={batch(Fade(), MoveOut(0, 300))}> */}
