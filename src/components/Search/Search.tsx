@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import ItemIdTitle from "./ItemIdTitle";
 import SearchBar from "./SearchBar";
 import SearchItemContainer from "./SearchItemContainer";
-import SearchItemObject from "./SearchItemObject";
 
 interface Props {
-    items: SearchItemObject[];
-    selectItem: (item: SearchItemObject) => void;
+    items: ItemIdTitle[];
+    selectItem: (item: ItemIdTitle) => void;
 }
 interface State {
     search: string;

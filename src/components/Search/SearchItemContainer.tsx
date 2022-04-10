@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import ItemIdTitle from "./ItemIdTitle";
 import SearchItem from "./SearchItem";
-import SearchItemObject from "./SearchItemObject";
 
 interface Props {
-    items: SearchItemObject[];
+    items: ItemIdTitle[];
     search: string;
     displayItems: boolean;
-    selectItem: (item: SearchItemObject) => void;
+    selectItem: (item: ItemIdTitle) => void;
 }
 interface State {
     hovering: boolean;
@@ -29,7 +29,10 @@ export default class SearchItemContainer extends Component<Props, State> {
             newArr.push(element);
             if (index !== elements.length - 1) {
                 newArr.push(
-                    <hr className="dark:border-slate-700 border-gray-200 dark:border-[0.5px] border-[1px]" />
+                    <hr
+                        key={element.key + "line"}
+                        className="dark:border-slate-700 border-gray-200 dark:border-[0.5px] border-[1px]"
+                    />
                 );
             }
         });
@@ -57,6 +60,7 @@ export default class SearchItemContainer extends Component<Props, State> {
                 {this.insertLines(
                     this.props.items.map(item => (
                         <SearchItem
+                            key={item.id}
                             text={item.title}
                             onClick={() => {
                                 this.props.selectItem(item);

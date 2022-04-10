@@ -29,7 +29,7 @@ export default class Home extends Component {
                             <SummaryCard
                                 img={pseudoCodeLogo}
                                 text="A simple extension for syntax highlighting of generic pseudocode."
-                                readMoreLink="/projects"
+                                readMoreLink="/projects/pseudocode"
                                 heightClass="h-[22rem] lg:h-[9rem]"
                                 widthClass="w-[20rem] lg:w-[24rem]"
                                 imgHeightClass="h-[10rem] lg:h-[65%]"
@@ -44,7 +44,7 @@ export default class Home extends Component {
                             <SummaryCard
                                 img={cellbotLogo}
                                 text="A command parser designed for CellBot."
-                                readMoreLink="/projects"
+                                readMoreLink="/projects/cmdcell"
                                 heightClass="h-[21rem] lg:h-[9rem]"
                                 widthClass="w-[20rem] lg:w-[22rem]"
                                 imgHeightClass="h-[10rem] lg:h-[65%]"
@@ -59,7 +59,7 @@ export default class Home extends Component {
                             <SummaryCard
                                 img={keybscriptLogo}
                                 text="A scripting language for keyboard input which aims to build some complexity upon the simplicity of DuckyScript."
-                                readMoreLink="/projects"
+                                readMoreLink="/projects/keybscript"
                                 heightClass="h-[26rem] lg:h-[12rem]"
                                 widthClass="w-[20rem] lg:w-[26rem]"
                                 imgHeightClass="h-[10rem] lg:h-[65%]"

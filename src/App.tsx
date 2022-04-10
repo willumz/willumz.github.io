@@ -49,9 +49,10 @@ class App extends Component<Props, State> {
                 <Header toggleDarkMode={this.toggleDarkMode} />
 
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
+                    <Route path="" element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="projects" element={<Projects />}></Route>
+                    <Route path="projects/:urlid" element={<Projects urlidPresent />} />
                 </Routes>
             </div>
         );
